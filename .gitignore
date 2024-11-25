@@ -1,0 +1,41 @@
+# Rust specific
+rust/target/
+**/*.rs.bk
+Cargo.lock
+
+# Go specific
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+go.sum
+
+# IDE specific
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# MapReduce specific
+mr-out-*
+mr-tmp-*
+
+# Build artifacts
+/dist/
+/build/
+/bin/
+
+# Debug files
+*.log
+*.debug
+
+# Environment files
+.env
+.env.local
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/

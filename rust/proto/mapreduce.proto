@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package mapreduce;
+
+// The MapReduce service definition
+service MapReduceService {
+  rpc Map (MapRequest) returns (MapResponse) {}
+  rpc Reduce (ReduceRequest) returns (ReduceResponse) {}
+  rpc Ping (PingRequest) returns (PingResponse) {}
+}
+
+// Map request containing the file path to process
+message MapRequest {
+  string file_path = 1;
+  string map_function = 2;
+}
+
+// Map response containing intermediate key-value pairs
+message MapResponse {
+  repeated KeyValuePair intermediate_results = 1;
+}
+
+// Reduce request containing intermediate results
+message ReduceRequest {
+  repeated KeyValuePair intermediate_results = 1;
+  string reduce_function = 2;
+}
+
+// Reduce response containing final results
+message ReduceResponse {
+  string final_result = 1;
+}
+
+// Key-value pair for intermediate results
+message KeyValuePair {
+  string key = 1;
+  string value = 2;
+}
+
+// Ping request for worker health check
+message PingRequest {}
+
+// Ping response containing worker status
+message PingResponse {
+  string status = 1;
+}
